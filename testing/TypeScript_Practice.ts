@@ -78,7 +78,7 @@ order1 = {
     customName: "Tobie" ,
     itemNumbers: [123,44,232] ,
     isCompleted: false }
-    
+
 //  app
 //      app.component.css
 //      app.component.html
@@ -124,7 +124,7 @@ import { provide } from 'vue';
     //      miles: number ;}
 
 //  on main TypeScript
-import { Car } from './car';
+  //  import { Car } from './car';
 
 //  creating new entities
     //  toyota: Car = {make: 'Toyota', model: 'Camry', miles: 111777};
@@ -140,7 +140,7 @@ import { Car } from './car';
 //  CLI
     //  ng generate service transportation
         //  generates empty service within the Angular application
-    //  { Injectable } from '@angular/core';
+    //  import { Injectable } from '@angular/core';
     //  @Injectable({
     //      providedIn: 'root' })
     //  export class TransportationService {
@@ -149,4 +149,36 @@ import { Car } from './car';
 
 
 import { Injectable } from '@angular/core';
+import { Car } from './car';
+
+@Injectable({
+  providedIn: 'root',
+})
+
+export class TransportationService {
+  // other code here
+  toyota: Car = {make: 'Toyota', model: 'Camry', miles: 111777};
+  ford: Car = {make: 'Ford', model: 'Mustang', miles: 17177};
+  lamborghini: Car = {make: 'Lamborghini', model: 'Gallardo', miles: 71177};
+
+  cars: Car[] = [this.toyota, this.ford, this.lamborghini];
+
+  constructor() { }
+
+  // other code here
+  getCars() {
+    return this.cars;
+  }
+}
+
+//  dependency injection
+
+//  import service
+//  import { TransportationService } from './transportation.service';
+
+//  inject service
+//  cars: Car[];
+//    constructor (private transportationService: TransportationService) {
+//    this.cars = this.transportationService.getCars(); }
+
 
